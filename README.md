@@ -49,7 +49,7 @@ To get a local copy up and running, follow these steps:
   - Virtual Environment (recommended)
 - **Clone the repository**
 
-  - git clone https://github.com/your-username/todo-django-app.git
+  - git clone https://github.com/AlokKumar-04/ToDo-Web-Application
   - cd todo-django-app
 
 - **Create and Activate Virtual Environment**
@@ -80,6 +80,6 @@ To get a local copy up and running, follow these steps:
 
 - **Author**: Alok Kumar Panda
 - **e-Mail**: alokkumarpanda72@gmail.com
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/alok-kumar-panda-864b421a4)
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/alok-kumar-panda-864b421a4)
 - **GitHub**: https://github.com/AlokKumar-04
 - Feel free to open issues or feature requests. If you find this project useful, give it a ⭐ on GitHub!
