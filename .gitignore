@@ -1,0 +1,3 @@
+# Ignore Windows Cache and System Files
+AppData/
+*.bin

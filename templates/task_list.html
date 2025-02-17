@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content %}
+<button
+  class="btn btn-success mb-3"
+  data-bs-toggle="modal"
+  data-bs-target="#addTaskModal"
+>
+  <i class="fas fa-plus"></i> Add Task
+</button>
+
+<div class="list-group">
+  {% for task in tasks %}
+  <div class="list-group-item list-group-item-action mb-2 rounded shadow-sm">
+    <div class="d-flex w-100 justify-content-between">
+      <h5
+        class="mb-1 {% if task.completed %}text-muted text-decoration-line-through{% endif %}"
+      >
+        {{ task.title }}
+      </h5>
+      <small>{{ task.due_date|date:"M d, Y H:i" }}</small>
+    </div>
+    <p class="mb-1">{{ task.description }}</p>
+    <div class="btn-group mt-2">
+      <a
+        href="{% url 'toggle_complete' task.pk %}"
+        class="btn btn-sm {% if task.completed %}btn-secondary{% else %}btn-success{% endif %}"
+      >
+        <i class="fas fa-check"></i>
+      </a>
+      <a href="{% url 'edit_task' task.pk %}" class="btn btn-sm btn-primary">
+        <i class="fas fa-edit"></i>
+      </a>
+      <a href="{% url 'delete_task' task.pk %}" class="btn btn-sm btn-danger">
+        <i class="fas fa-trash"></i>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Add Task Modal -->
+<div class="modal fade" id="addTaskModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Task</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{% url 'add_task' %}">
+          {% csrf_token %} {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
